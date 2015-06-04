@@ -39,8 +39,13 @@ class Money
   end
 
   def <=>(other)
-    raise ArgumentError, " Mis-match of Types " unless (other && other.class == self.class)
     @paise <=> other.paise
+  end
+
+  def > (other)
+    raise ArgumentError, " Mis-match of Types " unless (other && other.class == self.class)
+    return true if @paise > other.paise
+    return false else
   end
 
   def hash

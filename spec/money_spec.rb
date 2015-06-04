@@ -112,11 +112,14 @@ describe Money do
       money2 = [Money.new(1,20), Money.new(2,40), Money.new(5,50)]
       expect(money1.sort).to eq(money2)
     end
+  end
 
-    it "Array of 3 elements with a nil should give an exception" do
-      money1 = [Money.new(2,40), nil , Money.new(1,20)]
-      expect{money1}.to raise_error(ArgumentError)
+  describe "Comparision of 2 amounts" do
+    
+    it "comparision between 1 rupee 60 paise and 2 rupees 50 paise " do
+      money1 = Money.new(1,60)
+      money2 = Money.new(2,50)
+      expect(money1 > money2).to eq(false)
     end
-
   end
 end
