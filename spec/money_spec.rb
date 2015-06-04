@@ -99,19 +99,23 @@ describe Money do
 
   describe "MoneyToText" do
 
-    it "with 2 rupees 400 paise should return Rupee 2 Paise 400" do
+    it "with 2 rupees 400 paise should return Rupee 2 Paise 40" do
       money = Money.new(2,440)
       expect(money.to_s).to eq("Rupee 6 Paise 40")
     end
 
-    it "with - 2 rupee - 40 paisa should return - Rupee 2 Paise 400" do
+    it "with - 2 rupee - 40 paisa should return - Rupee 2 Paise 40" do
       money = Money.new(-2,-40)
       expect(money.to_s).to eq("- Rupee 2 Paise 40")
     end
 
-    it "with  2 rupee paisa should return -Rupee 2" do
+    it "with  - 2 rupee should return -Rupee 2" do
       money = Money.new(-2,0)
       expect(money.to_s).to eq("- Rupee 2")
+    end
+    it "with  - 2 paisa should return - Paise 2" do
+      money = Money.new(0,-2)
+      expect(money.to_s).to eq("- Paise 2")
     end
 
   end
