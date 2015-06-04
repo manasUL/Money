@@ -14,7 +14,7 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2015-06-04T12:31:58+05:30">2015-06-04T12:31:58+05:30</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2015-06-04T15:04:14+05:30">2015-06-04T15:04:14+05:30</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,15 +25,15 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         3.54
+         4.02
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>2</b> files in total.
-    <b>32</b> relevant lines. 
-    <span class="green"><b>32</b> lines covered</span> and
+    <b>35</b> relevant lines. 
+    <span class="green"><b>35</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -53,11 +53,11 @@
       <tr>
         <td class="strong"><a href="#56172cec5540cb03c0aefb3e4bad98a0636db98f" class="src_link" title="lib/money.rb">lib/money.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>45</td>
-        <td>29</td>
-        <td>29</td>
+        <td>50</td>
+        <td>32</td>
+        <td>32</td>
         <td>0</td>
-        <td>3.8</td>
+        <td>4.3</td>
       </tr>
       
       <tr>
@@ -91,8 +91,8 @@
     <h3>lib/money.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>29</b> relevant lines. 
-      <span class="green"><b>29</b> lines covered</span> and
+      <b>32</b> relevant lines. 
+      <span class="green"><b>32</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -130,14 +130,14 @@
           <code class="ruby">  def initialize(rupee, paise)</code>
         </li>
       
-        <li class="covered" data-hits="29" data-linenumber="6">
-          <span class="hits">29</span>
+        <li class="covered" data-hits="37" data-linenumber="6">
+          <span class="hits">37</span>
           
           <code class="ruby">    @paise = rupee*100 + paise</code>
         </li>
       
-        <li class="covered" data-hits="29" data-linenumber="7">
-          <span class="hits">29</span>
+        <li class="covered" data-hits="37" data-linenumber="7">
+          <span class="hits">37</span>
           
           <code class="ruby">    raise NegativeError, &quot;Money can&#39;t be negative&quot; if @paise &lt; 0</code>
         </li>
@@ -184,14 +184,14 @@
           <code class="ruby">  def ==(other)</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="15">
-          <span class="hits">9</span>
+        <li class="covered" data-hits="12" data-linenumber="15">
+          <span class="hits">12</span>
           
           <code class="ruby">    return false unless (other &amp;&amp; other.class == self.class)</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="16">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="10" data-linenumber="16">
+          <span class="hits">10</span>
           
           <code class="ruby">    (@paise == other.paise)</code>
         </li>
@@ -343,28 +343,58 @@
         <li class="covered" data-hits="1" data-linenumber="41">
           <span class="hits">1</span>
           
-          <code class="ruby">  def hash</code>
+          <code class="ruby">  def &lt;=&gt;(other)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="42">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="42">
+          <span class="hits">3</span>
           
-          <code class="ruby">    [paise].hash</code>
+          <code class="ruby">    raise ArgumentError, &quot; Mis-match of Types &quot; unless (other &amp;&amp; other.class == self.class)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="43">
+        <li class="covered" data-hits="3" data-linenumber="43">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    @paise &lt;=&gt; other.paise</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="44">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="44">
+        <li class="never" data-hits="" data-linenumber="45">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="46">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def hash</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="47">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    [paise].hash</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="48">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="49">
           <span class="hits">1</span>
           
           <code class="ruby">  alias_method :eql?, :==</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="45">
+        <li class="never" data-hits="" data-linenumber="50">
           
           
           <code class="ruby">end</code>

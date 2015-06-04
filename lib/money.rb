@@ -38,6 +38,11 @@ class Money
     res
   end
 
+  def <=>(other)
+    raise ArgumentError, " Mis-match of Types " unless (other && other.class == self.class)
+    @paise <=> other.paise
+  end
+
   def hash
     [paise].hash
   end

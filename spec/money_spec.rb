@@ -103,6 +103,20 @@ describe Money do
       money2 = Money.new(2,500)
       expect{money1-money2}.to raise_error(NegativeError)
     end
+  end
+
+  describe "SortingAmount" do
+    
+    it "Array of 3 amounts to be sorted" do
+      money1 = [Money.new(2,40), Money.new(5,50), Money.new(1,20)]
+      money2 = [Money.new(1,20), Money.new(2,40), Money.new(5,50)]
+      expect(money1.sort).to eq(money2)
+    end
+
+    it "Array of 3 elements with a nil should give an exception" do
+      money1 = [Money.new(2,40), nil , Money.new(1,20)]
+      expect{money1}.to raise_error(ArgumentError)
+    end
 
   end
 end
