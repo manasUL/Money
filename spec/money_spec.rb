@@ -62,8 +62,7 @@ describe Money do
     it "sum of money with 5 rupees 40 paise and nilis equal to nil" do
       money1 = Money.new(5,40)
       money2 = nil
-      money3 = nil
-      expect(money1 + money2).to eq(money3)
+      expect{money1 + money2}.to raise_error(TypeError)
     end
   end
 
@@ -75,25 +74,16 @@ describe Money do
       expect(money1 - money2).to eq(money3)
     end
 
-    it "with 2 rupees 400 paise after deduction of 2 rupee 540 paise should be equal to -1 rupees -40 paise" do
-      money1 = Money.new(2,400)
-      money2 = Money.new(2,540)
-      money3 = Money.new(-1,-40)
-      expect(money1 - money2).to eq(money3)
-    end
-
     it "with 2 rupees 400 paise after deduction nil should be equal to nil" do
       money1 = Money.new(2,400)
       money2 = nil
-      money3 = nil
-      expect(money1 - money2).to eq(money3)
+      expect{money1 - money2}.to raise_error(TypeError)
     end
 
     it "with 2 rupees 400 paise after deduction with some other object should be equal to nil" do
       money1 = Money.new(2,400)
       money2 = 5
-      money3 = nil
-      expect(money1 - money2).to eq(money3)
+      expect{money1 - money2}.to raise_error(TypeError)
     end
   end
 
@@ -104,19 +94,6 @@ describe Money do
       expect(money.to_s).to eq("Rupee 6 Paise 40")
     end
 
-    it "with - 2 rupee - 40 paisa should return - Rupee 2 Paise 40" do
-      money = Money.new(-2,-40)
-      expect(money.to_s).to eq("- Rupee 2 Paise 40")
-    end
-
-    it "with  - 2 rupee should return -Rupee 2" do
-      money = Money.new(-2,0)
-      expect(money.to_s).to eq("- Rupee 2")
-    end
-    it "with  - 2 paisa should return - Paise 2" do
-      money = Money.new(0,-2)
-      expect(money.to_s).to eq("- Paise 2")
-    end
   end
   
   describe "RaiseException" do
@@ -124,7 +101,7 @@ describe Money do
     it "with 2 rupees 400 paise after deduction 2 rupees 500 paise should raoise an exception" do
       money1 = Money.new(2,400)
       money2 = Money.new(2,500)
-      expect{money1-money2}.to raise_error(ArgumentError)
+      expect{money1-money2}.to raise_error(NegativeError)
     end
 
   end
