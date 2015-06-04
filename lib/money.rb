@@ -21,7 +21,8 @@ class Money
 
   def -(other)
     return nil unless (other && other.class == self.class)
-    Money.initialize_paise(@paise - other.paise)
+    @money = Money.initialize_paise(@paise - other.paise)
+    @money.negative_amount_exception
   end
 
   def to_s
@@ -38,6 +39,10 @@ class Money
     res = res + "Paise " + paise_temp.to_s if paise_temp != 0
     res
   end
+
+  def negative_amount_exception  
+    raise ArgumentError, 'After deduction the amount becomes negative' unless @paise.abs == @paise  
+  end 
 
   def hash
     [paise].hash

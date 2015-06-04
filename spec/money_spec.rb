@@ -117,6 +117,15 @@ describe Money do
       money = Money.new(0,-2)
       expect(money.to_s).to eq("- Paise 2")
     end
+  end
+  
+  describe "RaiseException" do
+    
+    it "with 2 rupees 400 paise after deduction 2 rupees 500 paise should raoise an exception" do
+      money1 = Money.new(2,400)
+      money2 = Money.new(2,500)
+      expect{money1-money2}.to raise_error(ArgumentError)
+    end
 
   end
 end
